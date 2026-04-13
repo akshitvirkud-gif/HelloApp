@@ -9,15 +9,8 @@ public class Main {
         if (args.length == 0) {
             name = "World";
         } else {
-            StringBuilder builder = new StringBuilder();
-
-            // Add all names with comma
-            for (String arg : args) {
-                builder.append(arg).append(", ");
-            }
-
-            // Remove last ", "
-            name = builder.substring(0, builder.length() - 2);
+            // Join all names with ", "
+            name = String.join(", ", args);
         }
 
         System.out.println("Hello, " + name + "!");
