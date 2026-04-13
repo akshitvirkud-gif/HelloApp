@@ -10,20 +10,14 @@ public class Main {
             name = "World";
         } else {
             StringBuilder builder = new StringBuilder();
-            boolean first = true;
 
-            // Enhanced for loop
+            // Add all names with comma
             for (String arg : args) {
-
-                if (!first) {
-                    builder.append(", ");
-                }
-
-                builder.append(arg);
-                first = false;
+                builder.append(arg).append(", ");
             }
 
-            name = builder.toString();
+            // Remove last ", "
+            name = builder.substring(0, builder.length() - 2);
         }
 
         System.out.println("Hello, " + name + "!");
