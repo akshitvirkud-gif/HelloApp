@@ -3,23 +3,29 @@ package com.example;
 public class Main {
     public static void main(String[] args) {
 
-        String result = "";
+        String name;
 
-        // If no arguments → default
+        // Default case
         if (args.length == 0) {
-            result = "World";
+            name = "World";
         } else {
-            // Loop through all names
-            for (int i = 0; i < args.length; i++) {
-                result += args[i];
+            StringBuilder builder = new StringBuilder();
+            boolean first = true;
 
-                // Add comma if not last element
-                if (i < args.length - 1) {
-                    result += ", ";
+            // Enhanced for loop
+            for (String arg : args) {
+
+                if (!first) {
+                    builder.append(", ");
                 }
+
+                builder.append(arg);
+                first = false;
             }
+
+            name = builder.toString();
         }
 
-        System.out.println("Hello, " + result + "!");
+        System.out.println("Hello, " + name + "!");
     }
 }
